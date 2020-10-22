@@ -28,8 +28,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     alignSelf: 'flex-end',
     flexGrow: 1,
-    "& > h6": {
-      fontSize: "18px"
+    "& > h2": {
+      fontSize: "1.125rem",
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '.875rem'
+      }
     }
   },
   userControls: {
@@ -37,19 +40,42 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   }
   ,separator: {
-    height: "40px"
+    height: "2.5rem"
     ,width: "1px"
     ,background: "#fff"
+    , [theme.breakpoints.down('sm')]: {
+      height: '1.5rem'
+    }
   }
-  ,breadcrumbs: {
-    fontSize: "14px"
+  , breadcrumbs: {
+    fontSize : "0.875rem"
+    , [theme.breakpoints.down('sm')]: {
+      fontSize: '.75rem'
+    }
   }
   ,fullName: {
-    fontSize: '14px'
+    fontSize: '.875rem'
+    , [theme.breakpoints.down('sm')]: {
+      fontSize: '.75rem'
+    }
+  }
+  , avatar: {
+    height  : '2.5rem'
+    , width : '2.5rem'
+    , [theme.breakpoints.down('sm')]: {
+      height : '1.5rem'
+      , width: '1.5rem'
+    }
+  }
+  ,iconSize: {
+    fontSize: '2.5rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.5rem'
+    }
   }
 }));
 
-export default function ProminentAppBar({currentPageTitle, userFullName}) {
+export default function ProminentAppBar({currentPageTitle, userFullName, avatarImgSrc}) {
   const classes = useStyles();
 
   return (
@@ -61,12 +87,12 @@ export default function ProminentAppBar({currentPageTitle, userFullName}) {
     <Container >
 
       <div className={classes.root}>
-        <AppBar position="static" elevation='0' color='transparent'>
-          <Toolbar className={classes.toolbar}>
+        <AppBar position="static" elevation='0' color='transparent' >
+          <Toolbar className={classes.toolbar} disableGutters={true}>
 
             <div className={classes.title}>
-              <Typography  variant="h6" noWrap>
-                {(currentPageTitle ?? 'Личный профиль').toUpperCase()}
+              <Typography  variant="button" component='h2' noWrap>
+                {(currentPageTitle ?? 'Личный профиль')}
               </Typography>
 
               <Breadcrumbs color="inherit" aria-label="breadcrumb" className={classes.breadcrumbs}>
@@ -74,7 +100,7 @@ export default function ProminentAppBar({currentPageTitle, userFullName}) {
                   Главная
                 </Link>
 
-                <Typography >
+                <Typography className={classes.breadcrumbs} >
                   {currentPageTitle ?? 'Личный профиль'}
                 </Typography>
 
@@ -84,7 +110,7 @@ export default function ProminentAppBar({currentPageTitle, userFullName}) {
             <div className={classes.userControls}>
 
               <IconButton aria-label="none notifications" color="inherit">
-                <NotificationsNoneOutlined fontSize='large' />
+                <NotificationsNoneOutlined className={classes.iconSize} />
               </IconButton>
 
               <div className={classes.separator}></div>
@@ -92,8 +118,7 @@ export default function ProminentAppBar({currentPageTitle, userFullName}) {
 
               <div>
                 <IconButton aria-label="profile menu" color="inherit" >
-                  <Avatar alt="" src="/static/images/avatar/3.jpg" />
-
+                  <Avatar alt={userFullName} src={avatarImgSrc} className={classes.avatar}/>
                 </IconButton>
 
                 <Hidden smDown >
