@@ -11,64 +11,64 @@ import Avatar from "@material-ui/core/Avatar"
 import Head from "next/head"
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+  root         : {
+    flexGrow: 1
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  menuButton   : {
+    marginRight: theme.spacing(2)
   },
-  toolbar: {
-    alignItems: 'flex-start',
-    background: 'transparent',
-    color: '#fff',
-    minHeight: 128,
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(2),
+  toolbar      : {
+    alignItems   : 'flex-start',
+    background   : 'transparent',
+    color        : '#fff',
+    minHeight    : 128,
+    paddingTop   : theme.spacing(1),
+    paddingBottom: theme.spacing(2)
   },
-  title: {
+  title        : {
     alignSelf: 'flex-end',
-    flexGrow: 1,
-    "& > h2": {
-      fontSize: "1.125rem",
+    flexGrow : 1,
+    "& > h2" : {
+      fontSize  : "1.125rem",
       [theme.breakpoints.down('sm')]: {
         fontSize: '.875rem'
       }
     }
   },
-  userControls: {
-    display: "flex",
-    alignItems: "center",
+  userControls : {
+    display   : "flex",
+    alignItems: "center"
   }
-  ,separator: {
-    height: "2.5rem"
-    ,width: "1px"
-    ,background: "#fff"
+  , separator  : {
+    height       : "2.5rem"
+    , width      : "1px"
+    , background : "#fff"
     , [theme.breakpoints.down('sm')]: {
       height: '1.5rem'
     }
   }
   , breadcrumbs: {
-    fontSize : "0.875rem"
+    fontSize     : "0.875rem"
     , [theme.breakpoints.down('sm')]: {
       fontSize: '.75rem'
     }
   }
-  ,fullName: {
-    fontSize: '.875rem'
+  , fullName   : {
+    fontSize     : '.875rem'
     , [theme.breakpoints.down('sm')]: {
       fontSize: '.75rem'
     }
   }
-  , avatar: {
-    height  : '2.5rem'
-    , width : '2.5rem'
+  , avatar     : {
+    height       : '2.5rem'
+    , width      : '2.5rem'
     , [theme.breakpoints.down('sm')]: {
       height : '1.5rem'
       , width: '1.5rem'
     }
   }
-  ,iconSize: {
-    fontSize: '2.5rem',
+  , iconSize   : {
+    fontSize     : '2.5rem',
     [theme.breakpoints.down('sm')]: {
       fontSize: '1.5rem'
     }
