@@ -1,7 +1,9 @@
 import {Avatar, Card, Hidden, IconButton, Typography} from "@material-ui/core"
 import EditIcon from "@material-ui/icons/Edit"
+import CloseIcon from '@material-ui/icons/Close';
 import React from "react"
 import {makeStyles} from "@material-ui/core/styles"
+import Button from "@material-ui/core/Button"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export function UserCard({userFullName}) {
+export function UserCard({userFullName, isEditing, setEditing}) {
   const classes = useStyles()
 
   return (
@@ -50,13 +52,13 @@ export function UserCard({userFullName}) {
       </Typography>
 
       <div>
-        <Hidden mdDown>
-          <Typography>Редактировать</Typography>
-        </Hidden>
-
-        <IconButton color='inherit'>
-          <EditIcon/>
-        </IconButton>
+        <Button color='inherit' onClick={() => (setEditing(!isEditing))}>
+          <Hidden smDown>
+            <Typography style={{textTransform: 'none'}} component={"span"}>{ isEditing ? 'Закрыть ' : 'Редактировать ' }</Typography>
+          </Hidden>
+          &nbsp;
+          { isEditing ? <CloseIcon/> : <EditIcon/> }
+        </Button>
       </div>
 
     </Card>

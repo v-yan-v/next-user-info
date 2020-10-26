@@ -25,7 +25,7 @@ export default function Home({userFullName, userEmail, userPhone}) {
 
         <Paper className={classes.userInfoList}>
           { isEditingUserInfo ?
-            <EditUserInfo  />
+            <EditUserInfo setEditingUserInfo={setEditingUserInfo} />
             :
             <UserInfo userEmail={userEmail} userPhone={userPhone}  />
           }
