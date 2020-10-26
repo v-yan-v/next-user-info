@@ -3,12 +3,10 @@ import AlternateEmailIcon from "@material-ui/icons/AlternateEmail"
 import PhoneIcon from "@material-ui/icons/Phone"
 import React from "react"
 import {makeStyles} from "@material-ui/core/styles"
-import {green} from "@material-ui/core/colors"
 
 
 const useStyles = makeStyles((theme) => ({
   iconSize: {
-    color: green[500],
     height: '1.875rem',
     width: '1.875rem',
     [theme.breakpoints.down('sm')]: {
@@ -41,7 +39,7 @@ export function UserInfo ({userEmail, userPhone}) {
       <List>
         <ListItem className={classes.userInfoListItem}>
           <ListItemIcon className={classes.userInfoListIcon}>
-            <AlternateEmailIcon className={classes.iconSize}/>
+            <AlternateEmailIcon  className={classes.iconSize} color='secondary'/>
           </ListItemIcon>
           <ListItemText>{userEmail ?? 'user@domain.com'}</ListItemText>
         </ListItem>
@@ -50,7 +48,7 @@ export function UserInfo ({userEmail, userPhone}) {
 
         <ListItem className={classes.userInfoListItem}>
           <ListItemIcon className={classes.userInfoListIcon}>
-            <PhoneIcon className={classes.iconSize}/>
+            <PhoneIcon className={classes.iconSize} color='secondary'/>
           </ListItemIcon>
           <ListItemText>{userPhone ?? '987-234-5454'}</ListItemText>
         </ListItem>

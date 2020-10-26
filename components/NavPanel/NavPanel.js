@@ -87,7 +87,7 @@ export default function ProminentAppBar({currentPageTitle, userFullName, avatarI
     <Container >
 
       <div className={classes.root}>
-        <AppBar position="static" elevation='0' color='transparent' >
+        <AppBar position="static" elevation={0} color='transparent' >
           <Toolbar className={classes.toolbar} disableGutters={true}>
 
             <div className={classes.title}>
