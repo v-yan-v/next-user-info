@@ -90,6 +90,16 @@ export function EditUserInfo ({setEditingUserInfo}) {
         // в нормальном приложении тут будет вызов actionCreator
         localStorage.setItem('userData', JSON.stringify(values))
         setActionResult(UPDATE_INFO_SUCCESS)
+
+        if (typeof window !== 'undefined') {
+          fetch('api/saveUserInfo', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(values)
+          })
+        }
       }
       catch (e) {
         console.error(e.message)
